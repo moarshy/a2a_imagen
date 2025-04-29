@@ -1,0 +1,25 @@
+[project]
+name = "imagegen"
+version = "0.1.7"
+description = "Generate or modify images using A2A and CrewAI"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "crewai[tools]>=0.95.0",
+    "google-genai>=1.9.0",
+    "a2a-samples @ git+https://github.com/google/A2A.git@main#subdirectory=samples/python",
+]
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+serve_a2a = "imagegen.__main__:main"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+include = [ "imagegen" ]
+exclude = [ "__pycache__", "*.pyc", ".pytest_cache", ".ruff_cache",]

@@ -47,7 +47,7 @@ def main(host, port):
             " powerful editing capabilities to modify, enhance, or completely"
             " transform visuals."
         ),
-        url=f"http://{host}:{port}/",
+        url=os.getenv("PROXY_URL", f"http://{host}:{port}/"),
         version="1.0.0",
         defaultInputModes=ImageGenerationAgent.SUPPORTED_CONTENT_TYPES,
         defaultOutputModes=ImageGenerationAgent.SUPPORTED_CONTENT_TYPES,
